@@ -7,7 +7,7 @@ To use:
 <ul>
 
   <li>Download the files</li>
-  <li>Open your terminal or commandline app</li>
+  <li>Open your terminal or command line app</li>
   <li>Run 'npm install' to install the dependencies</li>
   <li>Run 'npm start' to start a local server</li>
 
