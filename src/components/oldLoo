@@ -1,0 +1,103 @@
+import React from "react";
+import "./DaysList.css";
+
+import Day from "./Day/Day";
+import DayRow from "../DayRow/DayRow";
+
+const daysList = props => {
+  var staticDate = null;
+  var rows;
+  var weekday = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+  ];
+
+  const days = props.days.map(day => {
+    var currentDate = day.dt_txt.split(" ");
+    var today = new Date(currentDate[0] + "Z");
+
+    if (staticDate === null) {
+      staticDate = currentDate[0];
+    }
+
+    if (staticDate == currentDate[0]) {
+      return (
+        <div>
+          <Day
+            key={day.dt}
+            day={weekday[today.getDay()]}
+            description={day.weather[0].description}
+            icon={day.weather[0].icon}
+          />
+        </div>
+      );
+    } else {
+      staticDate = currentDate[0];
+    }
+  });
+
+  return <div className="daysList">{days}</div>;
+};
+
+export default daysList;
+
+
+
+
+
+
+
+
+
+
+
+import React from "react";
+import "./DaysList.css";
+
+import Day from "./Day/Day";
+import DayRow from "../DayRow/DayRow";
+
+const daysList = props => {
+  var staticDate = null;
+  var daysArray = [];
+  var weekday = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+  ];
+
+  for (var i = 0; i < props.days.length; i++) {
+    var currentDate = props.days[i].dt_txt.split(" ");
+    var today = new Date(currentDate[0] + "Z");
+
+    console.log(currentDate[0] + "static: " + staticDate);
+    if (staticDate === null) {
+      staticDate = currentDate[0];
+    }
+
+    if (staticDate == currentDate[0] && daysArray.indexOf(currentDate[0]) < 0) {
+      daysArray.push(currentDate[0]);
+    }
+
+    staticDate = currentDate[0];
+  }
+
+
+
+  console.log(daysArray);
+
+  return <div className="daysList" />;
+};
+
+export default daysList;
+
+https://medium.com/dailyjs/the-most-popular-javascript-links-of-2017-e4616e8b48c7?fbclid=IwAR3c9eV1voopQVwehNLquoB_kszRcMNSuK2_bAcha2WzxXFsLtJopAAtmik

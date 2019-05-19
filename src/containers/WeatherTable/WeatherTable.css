@@ -1,0 +1,10 @@
+.weatherTableContainer {
+  padding-top: 100px;
+}
+
+.weatherTableContainer .dateFilter {
+  text-align: left;
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
